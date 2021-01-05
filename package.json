@@ -1,0 +1,61 @@
+{
+	"name": "sbas-bug",
+	"description": "Cat Coding - A Webview API Sample",
+	"version": "0.0.1",
+	"publisher": "SAPSE",
+	"engines": {
+		"vscode": "^1.47.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:sbasbug.start"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/microsoft/vscode-extension-samples.git"
+	},
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "sbasbug.start",
+				"title": "SBAS Bug Start",
+				"category": "Coding",
+				"icon": {
+					"dark": "./out/media/icons/ico-page-editor-dark.svg",
+					"light": "./out/media/icons/ico-page-editor-light.svg"
+				}
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"when": "resourceExtname == .json",
+					"command": "sbasbug.start",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./ && copyfiles --flat ./media/icons/* ./out/media/icons",
+		"lint": "eslint . --ext .ts,.tsx",
+		"watch": "tsc -w -p ./",
+		"package": "vsce package",
+		"copyfiles": "copyfiles --flat ./media/icons/* ./out/media/icons"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^3.0.2",
+		"@typescript-eslint/parser": "^3.0.2",
+		"eslint": "^7.1.0",
+		"typescript": "^4.0.2",
+		"@types/vscode": "^1.47.0",
+		"@types/node": "^12.12.0",
+		"copyfiles": "2.1.1",
+		"vsce": "^1.76.1"
+	}
+}
